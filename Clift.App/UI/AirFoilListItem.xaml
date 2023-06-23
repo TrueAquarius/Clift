@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="AirfoilView.UI.AirFoilListItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AirfoilView.UI"
+             mc:Ignorable="d" 
+             d:DesignHeight="30" d:DesignWidth="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.Column="0" Name="ColorSample" Width="10" Height="10" Fill="Aquamarine"></Rectangle>
+        <CheckBox Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="VisibilityCheckBox" Checked="VisibilityCheckBox_Checked" Unchecked="VisibilityCheckBox_Unchecked" />
+        <TextBlock x:Name="Description" Grid.Column="2" VerticalAlignment="Center" FontSize="14" Foreground="Wheat" >Name</TextBlock>
+    </Grid>
+</UserControl>

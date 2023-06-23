@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "AirfoilView": {
+      "commandName": "Project",
+      "commandLineArgs": "\".\\..\\..\\..\\..\\Test Data\\ClarkY_Re10000.polar\""
+    }
+  }
+}

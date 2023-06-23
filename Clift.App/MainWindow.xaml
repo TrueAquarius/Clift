@@ -1,0 +1,22 @@
+﻿<Window x:Class="AirfoilView.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AirfoilView" xmlns:ui="clr-namespace:AirfoilView.UI"
+        mc:Ignorable="d"
+        Icon=".\Resources\CliftLogo32x32.png"
+        Title="Clift" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="18" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" Background="#444444" Foreground="Bisque">
+            <MenuItem Header="File" Background="#444444" Foreground="Bisque">
+                <MenuItem Header="Open Xfoil Polars" Click="Menu_File_Open_Click" Background="#444444" Foreground="Bisque" HorizontalAlignment="Right" HorizontalContentAlignment="Right" ></MenuItem>
+            </MenuItem>
+        </Menu>
+        <ui:ChartArea x:Name="ChartArea" Grid.Row="1" />
+    </Grid>
+</Window>
