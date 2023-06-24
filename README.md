@@ -1,1 +1,2 @@
-# Clift
+# C'lift
+Pronounciation [siːˈlɪft]
