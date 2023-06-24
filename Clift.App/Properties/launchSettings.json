@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "AirfoilView": {
+    "C'lift (with one argument)": {
       "commandName": "Project",
       "commandLineArgs": "\".\\..\\..\\..\\..\\Test Data\\ClarkY_Re10000.polar\""
     }

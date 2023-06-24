@@ -5,17 +5,18 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <Platforms>AnyCPU;x64;x86</Platforms>
     
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Clift-Logo-32x32.png" />
     <None Remove="Resources\CliftLogo32x32.png" />
     <None Remove="Resources\ClistLog16x16.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\CliftLogo32x32.png" />
-    <Resource Include="Resources\ClistLog16x16.png" />
+    <Resource Include="Resources\Clift-Logo-32x32.png" />
   </ItemGroup>
 
 </Project>

@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AirfoilView" xmlns:ui="clr-namespace:AirfoilView.UI"
         mc:Ignorable="d"
-        Icon=".\Resources\CliftLogo32x32.png"
-        Title="Clift" Height="450" Width="800">
+        Icon=".\Resources\Clift-Logo-32x32.png"
+        Title="C'lift Airfoil Polar Viewer" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="18" />
