@@ -9,7 +9,7 @@
   <Identity
     Name="db90eae9-3f3b-4aea-b782-f263f6fc43bc"
     Publisher="CN=github.com/TrueAquarius"
-    Version="1.0.0.0" />
+    Version="1.0.1.0" />
 
   <Properties>
     <DisplayName>C&apos;lift</DisplayName>
