@@ -132,10 +132,13 @@ namespace AirfoilView.Model.Airfoil
 
                 foreach (Polar p in polars.OrderBy(x => x.alpha))
                 {
-                    Point point = new Point();
-                    point.X = p.alpha;
-                    point.Y = p.Cl / p.Cd;
-                    curve.points.Add(point);
+                    if (p.Cd != 0)
+                    {
+                        Point point = new Point();
+                        point.X = p.alpha;
+                        point.Y = p.Cl / p.Cd;
+                        curve.points.Add(point);
+                    }
                 }
 
                 return curve;
