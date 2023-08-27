@@ -11,12 +11,6 @@ namespace AirfoilView.Model
         public double AlphaMin { get; set; }
         public double AlphaMax { get; set; }
 
-        public double Cl_ClCdMin { get; set; }
-        public double Cl_ClCdMax { get; set; }
-
-        public double Cd_ClCdMin { get; set; }
-        public double Cd_ClCdMax { get; set; }
-
         public double ClCdMin { get; set; }
         public double ClCdMax { get; set; }
 
@@ -34,12 +28,6 @@ namespace AirfoilView.Model
         {
             AlphaMin = -10.0;
             AlphaMax = 15.0;
-
-            Cl_ClCdMin = -0.6;
-            Cl_ClCdMax = 1.4;
-
-            Cd_ClCdMin = 0;
-            Cd_ClCdMax = 0.2;
 
             ClCdMin = -10;
             ClCdMax = 30;

@@ -103,6 +103,94 @@ namespace AirfoilView.Model.Airfoil
             return p;
         }
 
+        public double AlphaMin
+        {
+            get
+            {
+                return polars.Min(polar => polar.alpha);
+            }
+        }
+
+
+        public double AlphaMax
+        {
+            get
+            {
+                return polars.Max(polar => polar.alpha);
+            }
+        }
+
+
+
+        public double ClCdMin
+        {
+            get
+            {
+                return polars.Min(polar => polar.Cl / polar.Cd);
+            }
+        }
+
+
+        public double ClCdMax
+        {
+            get
+            {
+                return polars.Max(polar => polar.Cl / polar.Cd);
+            }
+        }
+
+
+
+        public double ClMin
+        {
+            get
+            {
+                return polars.Min(polar => polar.Cl);
+            }
+        }
+
+        public double ClMax
+        {
+            get
+            {
+                return polars.Max(polar => polar.Cl);
+            }
+        }
+
+
+        public double CdMin
+        {
+            get
+            {
+                return polars.Min(polar => polar.Cd);
+            }
+        }
+
+        public double CdMax
+        {
+            get
+            {
+                return polars.Max(polar => polar.Cd);
+            }
+        }
+
+
+        public double CmMin
+        {
+            get
+            {
+                return polars.Min(polar => polar.Cm);
+            }
+        }
+
+        public double CmMax
+        {
+            get
+            {
+                return polars.Max(polar => polar.Cm);
+            }
+        }
+
 
 
         public Curve CurveClCd

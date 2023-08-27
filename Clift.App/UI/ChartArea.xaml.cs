@@ -37,10 +37,10 @@ namespace AirfoilView.UI
         public void applyPreferences()
         {
             Preferences pref = Global.Instance.Preferences;
-            ChartCLCd.Xmin = pref.Cd_ClCdMin;
-            ChartCLCd.Xmax = pref.Cd_ClCdMax;
-            ChartCLCd.Ymin = pref.Cl_ClCdMin;
-            ChartCLCd.Ymax = pref.Cl_ClCdMax;
+            ChartCLCd.Xmin = pref.CdMin;
+            ChartCLCd.Xmax = pref.CdMax;
+            ChartCLCd.Ymin = pref.ClMin;
+            ChartCLCd.Ymax = pref.ClMax;
 
             ChartCdAlpha.Xmin = pref.AlphaMin;
             ChartCdAlpha.Xmax = pref.AlphaMax;
@@ -74,6 +74,25 @@ namespace AirfoilView.UI
             ChartCmAlpha.Add(p.CurveCmAlpha);
 
             AirFoilList.Add(p);
+
+            Global.Instance.Preferences.AlphaMin = Global.Instance.Polars.Min(p => p.AlphaMin); 
+            Global.Instance.Preferences.AlphaMax = Global.Instance.Polars.Max(p => p.AlphaMax); 
+
+            Global.Instance.Preferences.ClCdMin = Global.Instance.Polars.Min(p => p.ClCdMin);
+            Global.Instance.Preferences.ClCdMax = Global.Instance.Polars.Max(p => p.ClCdMax);
+
+            Global.Instance.Preferences.ClMin = Global.Instance.Polars.Min(p => p.ClMin); 
+            Global.Instance.Preferences.ClMax = Global.Instance.Polars.Max(p => p.ClMax); 
+
+            Global.Instance.Preferences.CdMin = Global.Instance.Polars.Min(p => p.CdMin);
+            Global.Instance.Preferences.CdMax = Global.Instance.Polars.Max(p => p.CdMax);
+
+            Global.Instance.Preferences.CmMin = Global.Instance.Polars.Min(p => p.CmMin);
+            Global.Instance.Preferences.CmMax = Global.Instance.Polars.Max(p => p.CmMax);
+
+            applyPreferences();
+            ReRender();
+
         }
 
         public void ReRender()
