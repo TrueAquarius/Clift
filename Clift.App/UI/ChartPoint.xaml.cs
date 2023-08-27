@@ -1,4 +1,5 @@
 ﻿using AirfoilView.Model.Airfoil;
+using Clift.App.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +32,7 @@ namespace AirfoilView.UI
             _text = "Alpha=" + p.Alpha 
                                + "   |   Cl=" + p.Cl 
                                + "   |   Cd=" + p.Cd 
-                               + "   |   Cl/Cd=" + p.ClCd;
+                               + "   |   Cl/Cd=" + MathUtil.RoundToNthDecimalPlace(p.ClCd,4);
         }
 
         protected override void OnMouseEnter(MouseEventArgs e)

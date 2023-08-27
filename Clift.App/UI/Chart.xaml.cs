@@ -7,6 +7,7 @@ using System.Windows.Shapes;
 using AirfoilView.Model.Draw;
 using AirfoilView.Model;
 using AirfoilView.Model.Airfoil;
+using Clift.App.Util;
 
 namespace AirfoilView.UI
 {
@@ -134,7 +135,7 @@ namespace AirfoilView.UI
             {
                 ChartGrid.Children.Add(CreateLine(x, Ymin, x, Ymax));
                 TextBlock t = new TextBlock();
-                t.Text = x.ToString();
+                t.Text = MathUtil.RoundToNthDecimalPlace(x, 3).ToString();
                 t.FontSize = 13;
                 t.Foreground = new SolidColorBrush(Colors.White);
                 t.HorizontalAlignment = HorizontalAlignment.Center;
@@ -143,7 +144,7 @@ namespace AirfoilView.UI
 
                 double left = (x - Xmin) / xScale;
                 double top = (Ymax - Ymin) / yScale;
-                t.Width = 20;
+                t.Width = 30;
                 t.SetValue(Canvas.LeftProperty, left - t.Width/2);
                 t.SetValue(Canvas.TopProperty, top+4);
                 ChartGrid.Children.Add(t);
@@ -155,7 +156,7 @@ namespace AirfoilView.UI
             {
                 ChartGrid.Children.Add(CreateLine(Xmin, y, Xmax, y));
                 TextBlock t = new TextBlock();
-                t.Text = y.ToString();
+                t.Text = MathUtil.RoundToNthDecimalPlace(y, 3).ToString(); 
                 t.FontSize = 13;
                 t.Foreground = new SolidColorBrush(Colors.White);
                 t.HorizontalAlignment = HorizontalAlignment.Right;
@@ -176,9 +177,16 @@ namespace AirfoilView.UI
         private double GridLineDist(double min, double max)
         {
             double d = (max - min); 
+            d = d<0 ? -d : d;
+            
             double l = Math.Log10(d);
-            double g = Math.Round(l);
+            double g = Math.Floor(l);
             double o = Math.Pow(10, g);
+
+            o = d / o < 3 ? o / 2 : o;
+            o = d / o >7 ? o * 2 : o;
+
+
             return o;
         }
 
@@ -205,7 +213,7 @@ namespace AirfoilView.UI
 
         }
 
-
+        
         public Line CreateLine(AirfoilView.Model.Draw.Point p1, AirfoilView.Model.Draw.Point p2)
         {
             return CreateLine(p1.X, p1.Y, p2.X, p2.Y);
