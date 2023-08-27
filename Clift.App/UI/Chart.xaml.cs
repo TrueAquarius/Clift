@@ -6,6 +6,7 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 using AirfoilView.Model.Draw;
 using AirfoilView.Model;
+using AirfoilView.Model.Airfoil;
 
 namespace AirfoilView.UI
 {
@@ -16,11 +17,14 @@ namespace AirfoilView.UI
     {
         public String Title { set { TitleText.Text = value; } }
 
+       
+        public String Xkey { get; set; }
         public double Xmin { get; set; }
         public double Xmax { get; set; }
         public double Xstep { get; set; }
         public double XstepLine { get; set; }
 
+        public string Ykey { get; set; }
         public double Ymin { get; set; }
         public double Ymax { get; set; }
         public double Ystep { get; set; }
@@ -29,35 +33,38 @@ namespace AirfoilView.UI
         private List<Rectangle> HorizontalLines = new List<Rectangle>();
         private List<Rectangle> VerticalLines = new List<Rectangle>();
         
-        private List<Curve> _curves = new();
-        private List<List<ChartPoint>> _charts = new();
+        private List<Polars> _polars = new();
+        private List<List<ChartPoint>> _chartPointList = new();
 
-        public void Add(Curve curve)
+        public void Add(Polars polars)
         {
             double xScale = (Xmax - Xmin) / (Face.ActualWidth);
             double yScale = (Ymax - Ymin) / (Face.ActualHeight);
 
-            _curves.Add(curve);
+            _polars.Add(polars);
             List<ChartPoint> _chartPoints = new();
 
-            foreach (AirfoilView.Model.Draw.Point point in curve.points)
+            foreach (Polar point in polars.polars)
             {
+                double x = point.GetPropertyValue(Xkey);
+                double y = point.GetPropertyValue(Ykey);
+
                 ChartPoint r = new ChartPoint(point);
-                r.Square.Fill = new SolidColorBrush(Global.Instance.getColor(_curves.Count-1));
+                r.Square.Fill = new SolidColorBrush(Global.Instance.getColor(_polars.Count-1));
                 r.Width = 4;
                 r.Height = 4;
-                double left = (point.X - Xmin) / xScale;
-                double top = (Ymax - point.Y) / yScale;
+                double left = (x - Xmin) / xScale;
+                double top = (Ymax - y) / yScale;
                 r.SetValue(Canvas.LeftProperty, left);
                 r.SetValue(Canvas.TopProperty, top);
 
-                r.SetValue(Panel.ZIndexProperty, 100 + _curves.Count);
-
+                r.SetValue(Panel.ZIndexProperty, 100 + _polars.Count);
+                
                 _chartPoints.Add(r);
                 ChartArea.Children.Add(r);
             }
 
-            _charts.Add(_chartPoints);
+            _chartPointList.Add(_chartPoints);
 
             this.Dispatcher.Invoke(() => {
                 RepositionFace();
@@ -84,16 +91,17 @@ namespace AirfoilView.UI
             double yScale = (Ymax - Ymin) / (Face.ActualHeight);
 
             int index = 0;
-            foreach(List<ChartPoint> l in _charts)
+            foreach(List<ChartPoint> l in _chartPointList)
             {
                 foreach (ChartPoint cp in l)
                 {
                     if (Global.Instance.Visibility[index] == Visibility.Visible)
                     {
-                        if (cp.Point.X >= Xmin && cp.Point.X <= Xmax && cp.Point.Y <= Ymax && cp.Point.Y >= Ymin)
+                        if (cp.Polar.GetPropertyValue(Xkey) >= Xmin && cp.Polar.GetPropertyValue(Xkey) <= Xmax &&
+                            cp.Polar.GetPropertyValue(Ykey) <= Ymax && cp.Polar.GetPropertyValue(Ykey) >= Ymin)
                         {
-                            double left = (cp.Point.X - Xmin) / xScale;
-                            double top = (Ymax - cp.Point.Y) / yScale;
+                            double left = (cp.Polar.GetPropertyValue(Xkey) - Xmin) / xScale;
+                            double top = (Ymax - cp.Polar.GetPropertyValue(Ykey)) / yScale;
                             cp.SetValue(Canvas.LeftProperty, left);
                             cp.SetValue(Canvas.TopProperty, top);
                             cp.Visibility = Visibility.Visible;

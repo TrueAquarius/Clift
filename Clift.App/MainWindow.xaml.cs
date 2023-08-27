@@ -100,6 +100,7 @@ namespace AirfoilView
         public void AddFile(string filename)
         {
             Polars? p = Polars.LoadFromXfoilFile(filename);
+
             if (p == null)
             {
                 // ToDo: Add error message here

@@ -8,6 +8,5 @@
              d:DesignHeight="10" d:DesignWidth="10">
     <Canvas>
         <Rectangle Name="Square" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="4" Height="4" Fill="Blue" />
-        <TextBlock Name="MouseOverText" Margin="10" Background="AliceBlue" Width="100" Visibility="Hidden" >Hello</TextBlock>
     </Canvas>
 </UserControl>

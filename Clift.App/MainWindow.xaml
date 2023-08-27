@@ -11,6 +11,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="18" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="18" />
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" Background="#444444" Foreground="Bisque">
             <MenuItem Header="File" Background="#444444" Foreground="Bisque">
@@ -18,5 +19,6 @@
             </MenuItem>
         </Menu>
         <ui:ChartArea x:Name="ChartArea" Grid.Row="1" />
+        <TextBlock x:Name="StatusBar" Grid.Row="2" Padding="10, 0, 0, 0" Background="#444444" Foreground="White">Hello</TextBlock>
     </Grid>
 </Window>

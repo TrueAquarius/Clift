@@ -67,11 +67,11 @@ namespace AirfoilView.UI
         {
             Polars p = Global.Instance.Polars[Global.Instance.Polars.Count - 1];    
 
-            ChartClAlpha.Add(p.CurveClAlpha);
-            ChartCdAlpha.Add(p.CurveCdAlpha);
-            ChartCLCd.Add(p.CurveClCd);
-            ChartClCdAlpha.Add(p.CurveClCdAlpha);
-            ChartCmAlpha.Add(p.CurveCmAlpha);
+            ChartClAlpha.Add(p);
+            ChartCdAlpha.Add(p);
+            ChartCLCd.Add(p);
+            ChartClCdAlpha.Add(p);
+            ChartCmAlpha.Add(p);
 
             AirFoilList.Add(p);
 

@@ -83,7 +83,7 @@ namespace AirfoilView.Model.Airfoil
                     try
                     {
                         Polar po = new Polar();
-                        po.alpha = Double.Parse(lineSplit[0], styles, culture);
+                        po.Alpha = Double.Parse(lineSplit[0], styles, culture);
                         po.Cl = Double.Parse(lineSplit[1], styles, culture);
                         po.Cd = Double.Parse(lineSplit[2], styles, culture);
                         po.Cdp = Double.Parse(lineSplit[3], styles, culture);
@@ -107,7 +107,7 @@ namespace AirfoilView.Model.Airfoil
         {
             get
             {
-                return polars.Min(polar => polar.alpha);
+                return polars.Min(polar => polar.Alpha);
             }
         }
 
@@ -116,7 +116,7 @@ namespace AirfoilView.Model.Airfoil
         {
             get
             {
-                return polars.Max(polar => polar.alpha);
+                return polars.Max(polar => polar.Alpha);
             }
         }
 
@@ -199,7 +199,7 @@ namespace AirfoilView.Model.Airfoil
             {
                 Curve curve = new Curve();
 
-                foreach (Polar p in polars.OrderBy(x => x.alpha))
+                foreach (Polar p in polars.OrderBy(x => x.Alpha))
                 {
                     Point point = new Point();
                     point.X = p.Cd;
@@ -218,12 +218,12 @@ namespace AirfoilView.Model.Airfoil
             {
                 Curve curve = new Curve();
 
-                foreach (Polar p in polars.OrderBy(x => x.alpha))
+                foreach (Polar p in polars.OrderBy(x => x.Alpha))
                 {
                     if (p.Cd != 0)
                     {
                         Point point = new Point();
-                        point.X = p.alpha;
+                        point.X = p.Alpha;
                         point.Y = p.Cl / p.Cd;
                         curve.points.Add(point);
                     }
@@ -240,10 +240,10 @@ namespace AirfoilView.Model.Airfoil
             {
                 Curve curve = new Curve();
 
-                foreach (Polar p in polars.OrderBy(x => x.alpha))
+                foreach (Polar p in polars.OrderBy(x => x.Alpha))
                 {
                     Point point = new Point();
-                    point.X = p.alpha;
+                    point.X = p.Alpha;
                     point.Y = p.Cl;
                     curve.points.Add(point);
                 }
@@ -259,10 +259,10 @@ namespace AirfoilView.Model.Airfoil
             {
                 Curve curve = new Curve();
 
-                foreach (Polar p in polars.OrderBy(x => x.alpha))
+                foreach (Polar p in polars.OrderBy(x => x.Alpha))
                 {
                     Point point = new Point();
-                    point.X = p.alpha;
+                    point.X = p.Alpha;
                     point.Y = p.Cd;
                     curve.points.Add(point);
                 }
@@ -277,10 +277,10 @@ namespace AirfoilView.Model.Airfoil
             {
                 Curve curve = new Curve();
 
-                foreach (Polar p in polars.OrderBy(x => x.alpha))
+                foreach (Polar p in polars.OrderBy(x => x.Alpha))
                 {
                     Point point = new Point();
-                    point.X = p.alpha;
+                    point.X = p.Alpha;
                     point.Y = p.Cm;
                     curve.points.Add(point);
                 }

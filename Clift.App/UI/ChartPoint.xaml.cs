@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AirfoilView.Model.Airfoil;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,25 +21,37 @@ namespace AirfoilView.UI
     /// </summary>
     public partial class ChartPoint : UserControl
     {
-        public Model.Draw.Point Point { get; set; }
-
-        public ChartPoint(Model.Draw.Point p)
+        public Polar Polar { get; set; }
+        private string _text;
+        public ChartPoint(Polar p)
         {
             InitializeComponent();
-            Point = p;
+            Polar = p;
 
-            MouseOverText.Text = "[ " + p.X + " | " + p.Y + " ]";
+            _text = "Alpha=" + p.Alpha 
+                               + "   |   Cl=" + p.Cl 
+                               + "   |   Cd=" + p.Cd 
+                               + "   |   Cl/Cd=" + p.ClCd;
         }
 
         protected override void OnMouseEnter(MouseEventArgs e)
         {
-            MouseOverText.Visibility = Visibility.Visible;
+            if (Application.Current.MainWindow is MainWindow mainWindow)
+            {
+                // Now you can interact with the main window
+                mainWindow.StatusBar.Text = _text;
+            }
+
         }
+
+
         protected override void OnMouseLeave(MouseEventArgs e)
         {
-            MouseOverText.Visibility = Visibility.Hidden;
+            if (Application.Current.MainWindow is MainWindow mainWindow)
+            {
+                // Now you can interact with the main window
+                mainWindow.StatusBar.Text = "";
+            }
         }
-
-
     }
 }

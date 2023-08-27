@@ -16,11 +16,11 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <local:Chart Grid.Row="0" Grid.Column="0" x:Name="ChartCLCd" Margin="30 0 0 20" Title="Cl vs. Cd"  />
-        <local:Chart Grid.Row="0" Grid.Column="1" x:Name="ChartClAlpha" Margin="30 0 0 20" Title="Cl vs. Alpha"  />
-        <local:Chart Grid.Row="1" Grid.Column="0" x:Name="ChartClCdAlpha" Margin="30 0 0 20" Title="Cl/Cd vs. Alpha"  />
-        <local:Chart Grid.Row="1" Grid.Column="1" x:Name="ChartCdAlpha" Margin="30 0 0 20" Title="Cd vs. Alpha"  />
-        <local:Chart Grid.Row="1" Grid.Column="2" x:Name="ChartCmAlpha" Margin="30 0 0 20" Title="Cm vs. Alpha"  />
+        <local:Chart Grid.Row="0" Grid.Column="0" x:Name="ChartCLCd"      Margin="30 0 0 20" Title="Cl vs. Cd"       Xkey="Cd"    Ykey="Cl"  />
+        <local:Chart Grid.Row="0" Grid.Column="1" x:Name="ChartClAlpha"   Margin="30 0 0 20" Title="Cl vs. Alpha"    Xkey="Alpha" Ykey="Cl"  />
+        <local:Chart Grid.Row="1" Grid.Column="0" x:Name="ChartClCdAlpha" Margin="30 0 0 20" Title="Cl/Cd vs. Alpha" Xkey="Alpha" Ykey="ClCd"  />
+        <local:Chart Grid.Row="1" Grid.Column="1" x:Name="ChartCdAlpha"   Margin="30 0 0 20" Title="Cd vs. Alpha"    Xkey="Alpha" Ykey="Cd"  />
+        <local:Chart Grid.Row="1" Grid.Column="2" x:Name="ChartCmAlpha"   Margin="30 0 0 20" Title="Cm vs. Alpha"    Xkey="Alpha" Ykey="Cm"  />
         <local:AirFoilList x:Name="AirFoilList" Grid.Row="0" Grid.Column="2" />
     </Grid>
 </UserControl>
